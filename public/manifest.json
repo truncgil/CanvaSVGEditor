@@ -1,0 +1,13 @@
+{
+  "appId": "canva-svg-editor",
+  "name": "SVG Editor",
+  "description": "Edit SVG files - split, group, and change colors",
+  "version": "1.0.0",
+  "permissions": [
+    "design:read",
+    "design:write",
+    "selection:read",
+    "selection:write"
+  ],
+  "entrypoint": "index.html"
+}
