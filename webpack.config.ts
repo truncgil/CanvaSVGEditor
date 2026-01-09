@@ -69,7 +69,8 @@ export function buildConfig({
         "react-dom": path.resolve(process.cwd(), "node_modules", "react-dom"),
       },
       extensions: [".ts", ".tsx", ".js", ".css", ".svg", ".woff", ".woff2"],
-      mainFields: ["browser", "module", "main"],
+      mainFields: ["main", "browser", "module"],
+      conditionNames: ["default", "import", "require"],
     },
     infrastructureLogging: {
       level: inHarness ? "info" : "none",
