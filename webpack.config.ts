@@ -64,6 +64,9 @@ export function buildConfig({
         assets: path.resolve(process.cwd(), "assets"),
         styles: path.resolve(process.cwd(), "styles"),
         src: path.resolve(process.cwd(), "src"),
+        // React ve ReactDOM'u tek bir instance'a zorla
+        react: path.resolve(process.cwd(), "node_modules", "react"),
+        "react-dom": path.resolve(process.cwd(), "node_modules", "react-dom"),
       },
       extensions: [".ts", ".tsx", ".js", ".css", ".svg", ".woff", ".woff2"],
     },
