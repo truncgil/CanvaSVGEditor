@@ -1,5 +1,5 @@
 import type { Configuration } from "webpack";
-import { DefinePlugin, optimize } from "webpack";
+import { DefinePlugin, optimize, NormalModuleReplacementPlugin } from "webpack";
 import path from "path";
 import TerserPlugin from "terser-webpack-plugin";
 import { transform } from "@formatjs/ts-transformer";
@@ -187,6 +187,15 @@ export function buildConfig({
       }),
       // Apps can only submit a single JS file via the Developer Portal
       new optimize.LimitChunkCountPlugin({ maxChunks: 1 }),
+      // React 19 uyumluluğu için: @floating-ui/react'in React import'unu düzelt
+      new NormalModuleReplacementPlugin(
+        /^react$/,
+        path.resolve(process.cwd(), "node_modules", "react", "index.js")
+      ),
+      new NormalModuleReplacementPlugin(
+        /^react-dom$/,
+        path.resolve(process.cwd(), "node_modules", "react-dom", "index.js")
+      ),
     ].filter(Boolean),
     ...buildDevConfig(devConfig),
   };
